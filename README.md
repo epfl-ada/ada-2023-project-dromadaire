@@ -18,12 +18,6 @@ pip install -r requirements.txt
 python3 import_data.py
 ```
 
-You need the `requests` python module to use the script. You can install it using the following command (you'll already have it if you installed all the requirements from the `requirements.txt` file):
-
-```bash
-pip install requests
-``` 
-
 Your data folder should look like this:
 
 ```
@@ -38,6 +32,8 @@ data/
 └── imdb/  
     ├── imdb_titles.tsv
     └── imdb_ratings.tsv
+└── bo_mojo/  
+    └── bo_mojo.csv
 
 ```
 
