@@ -14,6 +14,7 @@ In order to run the jupyter notebooks, you will need to download the dataset. To
 Run
 
 ```bash
+pip install -r requirements.txt
 python3 import_data.py
 ```
 
