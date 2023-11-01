@@ -15,7 +15,7 @@ Run
 python3 import_data.py
 ```
 
-You need the `requests` python module to use the script. You can install it using (you will have it by default if used installed all the requirements from the `requirements.txt` file):
+You need the `requests` python module to use the script. You can install it using the following command (you'll already have it if you installed all the requirements from the `requirements.txt` file):
 
 ```bash
 pip install requests
