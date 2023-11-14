@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup as bs
 from tqdm import tqdm
 
 movie_url = 'http://www.cs.cmu.edu/~ark/personas/data/MovieSummaries.tar.gz'
+imdb_names_url = 'https://datasets.imdbws.com/name.basics.tsv.gz'
+imdb_principals_url = 'https://datasets.imdbws.com/title.principals.tsv.gz'
 imdb_title_url = 'https://datasets.imdbws.com/title.basics.tsv.gz'
 imdb_rating_url = 'https://datasets.imdbws.com/title.ratings.tsv.gz'
 bo_mojo_url = 'https://www.boxofficemojo.com'
@@ -84,9 +86,11 @@ def main():
         download_movie_data(movie_url, data_target)
 
         # Download IMDB data
+        download_imdb_data(imdb_names_url, imdb_target+'/imdb_names.tsv')
+        download_imdb_data(imdb_principals_url, imdb_target+'/imdb_principals.tsv')
         download_imdb_data(imdb_title_url, imdb_target+'/imdb_titles.tsv')
         download_imdb_data(imdb_rating_url, imdb_target+'/imdb_ratings.tsv')
-
+        
         # Download box office mojo data
         download_box_office_mojo(bo_mojo_url, bo_mojo_target+'/bo_mojo.csv')
         
