@@ -1,4 +1,5 @@
 ipykernel
+progressbar
 pandas
 seaborn
 matplotlib
