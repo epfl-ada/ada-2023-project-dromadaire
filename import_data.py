@@ -8,11 +8,27 @@ imdb_principals_url = 'https://datasets.imdbws.com/title.principals.tsv.gz'
 imdb_title_url = 'https://datasets.imdbws.com/title.basics.tsv.gz'
 imdb_rating_url = 'https://datasets.imdbws.com/title.ratings.tsv.gz'
 bo_mojo_url = 'https://www.boxofficemojo.com'
+kaggle_awards_name = 'unanimad/the-oscar-award'
 
 data_target = './data'
-movie_target = './data/MovieSummaries'
-imdb_target = './data/imdb'
-bo_mojo_target = './data/bo_mojo'
+movie_target    = data_target + '/MovieSummaries'
+imdb_target     = data_target + '/imdb'
+bo_mojo_target  = data_target + '/bo_mojo'
+kaggle_target   = data_target + '/kaggle'
+
+def check_target(to):
+    if os.path.exists(to):
+        # ask user if they want to overwrite
+        print("\033[91mDirectory {} already exists".format(to))
+        response = input("Do you want to overwrite? (y/n): \033[0m")
+        if response.lower() == 'y':
+            print("Overwriting existing directory")
+            shutil.rmtree(to)
+            os.mkdir(to)
+            return True
+        else:
+            return False
+    return True
 
 # add function "download_data" that download a dataset from a given URL
 def download_movie_data(url, to):
@@ -65,34 +81,47 @@ def download_box_office_mojo(url, to):
         box_office.to_csv(to, index = None)
         print("Download complete\n") 
 
-def check_target(to):
-    if os.path.exists(to):
-        # ask user if they want to overwrite
-        print("Data directory already exists")
-        response = input("Do you want to overwrite? (y/n): ")
-        if response.lower() == 'y':
-            print("Overwriting existing directory")
-            shutil.rmtree(to)
-            os.mkdir(to)
-            return True
-        else:
-            print("Exiting")
-            return False
-    return True
+def download_awards(name, to):
+    os.environ['KAGGLE_KEY'] = 'bacc9cd361a5492f423e26574f5de1af'
+    os.environ['KAGGLE_USERNAME'] = 'thohoule'
+    import kaggle
+    
+    worked = False
+    while not worked:
+        try:
+            kaggle.api.authenticate()
+            kaggle.api.dataset_download_files(name, path=to, unzip=True, quiet=False)
+            worked = True
+        except:
+            print("\033[91mDefault autentication tokens didn't work, please go to kaggle, connect and create a token \033[0m\n")
+            username = str(input("username: "))
+            key = str(input("key: "))
+            os.environ['KAGGLE_KEY'] = key
+            os.environ['KAGGLE_USERNAME'] = username
+            worked = False
 
 def main():
-    if check_target(data_target):
-        # Download movies data        
+    
+
+    check_target(data_target)
+    # Download movies data        
+    if check_target(movie_target):
         download_movie_data(movie_url, data_target)
 
-        # Download IMDB data
+    # Download IMDB data
+    if check_target(imdb_target):
         download_imdb_data(imdb_names_url, imdb_target+'/imdb_names.tsv')
         download_imdb_data(imdb_principals_url, imdb_target+'/imdb_principals.tsv')
         download_imdb_data(imdb_title_url, imdb_target+'/imdb_titles.tsv')
         download_imdb_data(imdb_rating_url, imdb_target+'/imdb_ratings.tsv')
-        
-        # Download box office mojo data
+
+    # Download box office mojo data
+    if check_target(bo_mojo_target):
         download_box_office_mojo(bo_mojo_url, bo_mojo_target+'/bo_mojo.csv')
+
+    # Download awards dataset
+    if check_target(kaggle_target):
+        download_awards(kaggle_awards_name, kaggle_target)
         
 
 if __name__ == "__main__":
