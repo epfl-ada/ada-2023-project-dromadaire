@@ -102,13 +102,14 @@ This is an example of results and observations we could obtain:
 
 
 <div style="display: flex; justify-content: space-between;">
-    <div style="width: 53%;">
+    <div style="width: 48%;">
         <!-- Your text goes here -->
 
 - From year 1 to year 5, we observe diverging trends for the most selected and highest-rated features. We can conclude that the film industry doesn’t seem to choose their main actors depending on what viewers prefer.
+
 - From year 6 to year 10, we observe converging trends for both curves meaning the film industry tends to take into account the viewer’s preferences when choosing their main actors.
     </div>
-    <div style="width: 45%;">
+    <div style="width: 50%;">
         <img src="images/crossAnalysis.png" alt="Cross Analysis">Figure 1: Example of cross-analysis result</p>
     </div>
 </div>
