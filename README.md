@@ -40,6 +40,13 @@ A list of main actors was extracted from the IMDb principals dataset, and then m
 
 ### Feature extraction
 
+From our various dataset we will retain a few selection of features. For the actors we will keep an ID (sourced from the IMDb dataset), his name, age and gender. For the movies, we keep the wikipedia ID, the IMDb ID, the movie’s title, release year, genre(s) and rating.
+
+On top of that, we have a few additional actor features that we will engineer based on some simple statistics:
+- Awards won: the number of academy awards won by the actor prior to this role.
+- Nominations: similarly to the awards won but taking only nominations.
+- Previous roles: the number of roles the actor played in prior to this role.
+- Previous roles in the same genre: the above column filtered to keep only movies of the same genre
 
 This will lead to the creation of our final dataset composed of two data frames.
 
@@ -96,11 +103,11 @@ This is an example of results and observations we could obtain:
     <div style="width: 53%;">
         <!-- Your text goes here -->
 
-From year 1 to year 5, we observe diverging trends for the most selected and highest-rated features. We can conclude that the film industry doesn’t seem to choose their main actors depending on what viewers prefer.
-From year 6 to year 10, we observe converging trends for both curves meaning the film industry tends to take into account the viewer’s preferences when choosing their main actors.
+- From year 1 to year 5, we observe diverging trends for the most selected and highest-rated features. We can conclude that the film industry doesn’t seem to choose their main actors depending on what viewers prefer.
+- From year 6 to year 10, we observe converging trends for both curves meaning the film industry tends to take into account the viewer’s preferences when choosing their main actors.
     </div>
     <div style="width: 45%;">
-        <img src="images/crossAnalysis.jpg" alt="Cross Analysis" style="width: 100%;">
+        <img src="images/crossAnalysis.jpg" alt="Example of cross Analysis result we could obtain" style="width: 100%;">
         <p style="text-align: center;">Figure 1: Cross Analysis</p>
     </div>
 </div>
