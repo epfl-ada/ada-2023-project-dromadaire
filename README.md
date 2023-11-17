@@ -3,7 +3,7 @@
 
 ## Abstract
 
-Main characters often drive the plot and central themes of a movie. Hence, it is interesting to concentrate our analysis exclusively on the main character and study the attributes of the actors who portray them. The goal of this data analysis project is to gain insight into the casting and viewers’ preferences for main characters within various movie genres.
+Main characters often drive the plot and central themes of a movie. Hence, it is interesting to concentrate our analysis exclusively on the main characters and study the attributes (such as their age, gender,...) of the actors who portray them. The goal of this data analysis project is to gain insight into the casting and viewers’ preferences for main actors within a specific movie genre.
 
 Firstly, we'll filter the dataset based on key criteria: prominent genre, relevant time period, main character, and pertinent features. Next, we'll conduct two studies on the filtered dataset:
 
@@ -21,19 +21,19 @@ In the final phase of our project, we will conduct a comprehensive cross-analysi
 
 ## Additional datasets
 
-- **IMDb Non-Commercial Datasets**: The datasets include various aspects of movie and TV show data like titles, crew, ratings, and episode details. In this project are used datasets title.basics (basic title information), title.principals (main participants), title.ratings (user ratings), and name.basics (personnel details).
+- **IMDb Non-Commercial Datasets**: The datasets include various aspects of movie and TV shows data like titles, crew, ratings, and episode details. In this project we use datasets title.basics (basic title information), title.principals (main participants), title.ratings (user ratings), and name.basics (personnel details).
 Source: https://datasets.imdbws.com/
 
-- **Kaggle Awards Dataset**: This dataset is a scraping of the official Academy Awards listing winners and nominees between 1927 and 2023. A typical row indicates that a given actor was nominated in a given year for a given movie and whether an oscar was won or not.
+- **Kaggle Awards Dataset**: This dataset is a scraping of the official Academy Awards, listing winners and nominees between 1927 and 2023. A typical row indicates that a given actor was nominated in a given year for a given movie and whether an oscar was won or not.
 Source: https://www.kaggle.com/datasets/unanimad/the-oscar-award
 
 ## Methods
 
 ### Data preparation
 
-In the data preparation phase, we conducted a thorough analysis of data types, including the transformation of dates into years, for example. Unused columns were dropped, and the remaining ones were renamed for consistency. 
+In the data preparation phase, we conducted a thorough analysis of data types, including the transformation of dd/mm/yyyy to years, for example. Unused columns were dropped, and the remaining ones were renamed for consistency. 
 
-An inner merge was performed between IMDb and CMU movies, based on film names and years, augmenting the dataset with ratings and IMDb IDs.
+An inner merge was performed between IMDb and CMU movies, based on movie name and release date, augmenting the dataset with ratings and IMDb IDs.
 
 A list of main actors was extracted from the IMDb principals dataset, and then merged with both the merged movies dataframe and Kaggle Awards dataset to add features nomination and awards.
 
@@ -54,7 +54,7 @@ This will lead to the creation of our final dataset composed of two data frames.
 <u>**Dataframe 1</u>: Movies**
 
 
-All movies have a unique WikiID but can have the same name or the same release year (not both at the same time), hence there are unique combinations of “name + year”
+Each movie has a unique WikiID but may share the same name or release year (not simultaneously). Therefore, there are unique combinations of "name + year."
 
 <div align="center">
 
@@ -73,7 +73,7 @@ All movies have a unique WikiID but can have the same name or the same release y
 
 **<u>Dataframe 2</u>: Main actors**
 
-The Wiki ID / IMDB ID can appear in several rows if there is more than one main character but the combination “Wiki ID + Actor ID” is unique.
+The Wiki ID / IMDB ID and the Actor ID uniquely identify each entry.
 
 <div align="center">
 
@@ -91,7 +91,7 @@ The Wiki ID / IMDB ID can appear in several rows if there is more than one main 
 
 ### Feasibility analysis
 
-After carefully checking our merged dataset and dealing with any missing information, it was found that analyzing it is possible. The review showed that Drama is the most common movie genre, which allows us to look into 17,500 movies and a similar number of main actors. By using statistical methods, the aim is to discover patterns and preferences in the data about actors.
+After checking the final datasets, we can conclude that our analysis is feasible. The features can be found within our datasets and there is enough data. We have implemented the option to change the number of main actors that will be analysed, thus growing our dataset if needed.
 
 ---
 ### Exploratory analysis: mode and top-rated attributes
@@ -111,9 +111,9 @@ This is an example of results and observations we could obtain:
     <div style="width: 48%;">
         <!-- Your text goes here -->
 
-- From year 1 to year 5, we observe diverging trends for the most selected and highest-rated features. We can conclude that the film industry doesn’t seem to choose their main actors depending on what viewers prefer.
+- From year 1 to year 5, we would observe diverging trends for the most selected and top-rated features. We could conclude that the film industry doesn’t seem to choose their main actors depending on what viewers prefer.
 
-- From year 6 to year 10, we observe converging trends for both curves meaning the film industry tends to take into account the viewer’s preferences when choosing their main actors.
+- From year 6 to year 10, we could observe converging trends for both curves meaning the film industry tends to take into account the viewer’s preferences when choosing their main actors.
     </div>
     <div style="width: 40%;">
         <img align="right" src="images/crossAnalysis.png" alt="Cross Analysis">Figure 1: Example of cross-analysis result</p>
@@ -130,7 +130,7 @@ We could perform a t-test to verify the observations made before. By looking at 
 
 ###  Machine Learning approach:  prediction of viewers’ ratings 
 
-Another interesting analysis could be trying to find a machine learning algorithm to predict the viewer’s ratings of a film depending on the characteristics of the main character. To do so, we will try to perform a linear regression on our data. However, it is difficult to predict now if it will be judicious to use this method. If not, we could use other approaches such as neural networks or decision trees. Next, we'll proceed to train the chosen machine learning algorithm using a predefined training set and test it with the testing dataset.
+Another interesting analysis could be trying to find a machine learning algorithm to predict the viewer’s ratings of a film depending on the characteristics of the main character. To do so, we will try to perform a linear regression on our data. Next, we'll proceed to train the chosen machine learning algorithm using a predefined training set and test it with the testing dataset.
 
 ###  Most profitable actor
 
@@ -162,9 +162,9 @@ A further analysis could involve conducting a third study to determine the most 
 
 ## Organization within the team
 
-- **Armance**: Feature extraction, Data Visualisation, Feasibility analysis, README
+- **Armance Novel**: Feature extraction, Data Visualisation, Feasibility analysis, README
 
-- **Emeline**: Explore analysis, Cross-analysis, Machine Learning, Data-story
+- **Emeline Debalme**: Explore analysis, Cross-analysis, Machine Learning, Data-story
 
 - **Théo Houle**: Explore analysis, Cross-analysis, Data-story, README
 
