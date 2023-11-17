@@ -14,9 +14,10 @@ In the final phase of our project, we will conduct a comprehensive cross-analysi
 
 ## Research Questions
 
-- Do the viewer's preferences influence the type of main actor chosen for a certain movie genre?
+- Are there any predominant characteristics for actors chosen to portray main characters in a specific movie genre and does it evolve over time?
 
-- Are there any predominant characteristics for actors chosen to portray main characters in a specific movie genre, and does it evolve over time?
+- How does the notoriety of an actor influence his likeliness to be selected for a given role? Do the viewer's preferences influence the casting? How do honors such as Oscars influence the casting? Does the number of roles prior roles? 
+
 
 ## Additional datasets
 
@@ -87,9 +88,9 @@ The Wiki ID / IMDB ID can appear in several rows if there is more than one main 
 After carefully checking our merged dataset and dealing with any missing information, it was found that analyzing it is possible. The review showed that Drama is the most common movie genre, which allows us to look into 17,500 movies and a similar number of main actors. By using statistical methods, the aim is to discover patterns and preferences in the data about actors.
 
 ---
-### Exploratory analysis: mode and preferred features
+### Exploratory analysis: mode and top-rated attributes
 
-To identify the most frequently chosen actor’s features, we will examine the mode for continuous features and the highest count for discrete ones. For determining preferred features, we will calculate the mean rating of movies within a specific actor feature to identify each highest-rated feature. We will ensure the selected features are significantly popular or preferred before finalizing our choices. Finally, we will visualize the distributions of these selected features over the years and explore potential significant differences in features across different years by performing t-test analysis.
+To identify the most frequently chosen actor’s features, we will examine the mode of the data. For determining the top-rated attributes, the mean rating of movies is calculated within a specific actor attribute to identify each top-rated attribute. The distributions of these selected features will be visualized over the years to explore potential differences in value by performing t-test analysis.
 
 ### Cross-analysis: differences between the most chosen and highest rated actor’s features
 
