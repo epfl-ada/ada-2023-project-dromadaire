@@ -111,7 +111,7 @@ A further analysis could involve conducting a third study to determine the most 
 | P3.3   | Cross-Analysis                  | 08/12        |
 | P3.4   | Machine Learning                | 15/12        |
 | P3.5   | Data Story                      | 20/12        |
-| P3.6   | Most Profitable Actor (if enough time) | -            |
+| P3.6   | Most Profitable Actor           | if enough time |
 
 </div>
 
