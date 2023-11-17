@@ -1,6 +1,10 @@
 
 # Title 
 
+<p align="center">
+<img src="images/ab_giphy.gif" style="width: 30%;">
+</p>
+
 ## Abstract
 
 Main characters often drive the plot and central themes of a movie. Hence, it is interesting to concentrate our analysis exclusively on the main characters and study the attributes (such as their age, gender,...) of the actors who portray them. The goal of this data analysis project is to gain insight into the casting and viewers’ preferences for main actors within a specific movie genre.
@@ -105,20 +109,18 @@ To identify the most frequently chosen actor’s features, we will examine the m
 To visualize variations and parallels between the two methods, we will illustrate our observations using the following type of plot.
 This is an example of results and observations we could obtain: 
 
+<p align="center">
+<img src="images/crossAnalysis.png" style="width: 40%;">
+</p>
+<p align="center">
+<em>Example of cross-analysis result</em>
+</p>
+
+- Years 1 to 5 show diverging trends in the most selected and highest-rated features, suggesting the film industry doesn't align actor selection with viewer preferences.
+
+- In contrast, years 6 to 10 reveal converging trends, indicating the industry may consider viewer preferences when choosing main actors.
 
 
-<div style="display: flex; justify-content: space-between;">
-    <div style="width: 48%;">
-        <!-- Your text goes here -->
-
-- From year 1 to year 5, we would observe diverging trends for the most selected and top-rated features. We could conclude that the film industry doesn’t seem to choose their main actors depending on what viewers prefer.
-
-- From year 6 to year 10, we could observe converging trends for both curves meaning the film industry tends to take into account the viewer’s preferences when choosing their main actors.
-    </div>
-    <div style="width: 40%;">
-        <img align="right" src="images/crossAnalysis.png" alt="Cross Analysis">Figure 1: Example of cross-analysis result</p>
-    </div>
-</div>
 
 <br>
 
