@@ -43,6 +43,17 @@ This will lead to the creation of our final dataset composed of two data frames.
 
 **Dataframe 1: Movies**
 
+All movies have a unique WikiID but can have the same name or the same release year (not both at the same time), hence there are unique combinations of “name + year”
+
+<div align="center">
+
+| Wiki ID | Movie name | Release year | Genres | Rating |
+|---------|------------|--------------|--------|--------|
+| W_ID1   | name1      | year1        | Genre1 | Rating1|
+| W_ID2   | name1      | year2        | Genre2 | Rating2|
+| W_ID3   | name2      | year1        | Genre3 | Rating3|
+</div>
+
 
 **Dataframe 2: Main actors**
 
