@@ -70,12 +70,50 @@ The Wiki ID / IMDB ID can appear in several rows if there is more than one main 
 
 </div>
 
+### Feasibility analysis
 
+### Exploratory analysis: mode and preferred features
 
+To identify the most frequently chosen actor’s features, we will examine the mode for continuous features and the highest count for discrete ones. For determining preferred features, we will calculate the mean rating of movies within a specific actor feature to identify each highest-rated feature. We will ensure the selected features are significantly popular or preferred before finalizing our choices. Finally, we will visualize the distributions of these selected features over the years and explore potential significant differences in features across different years by performing t-test analysis.
 
+### Cross-analysis: differences between the most chosen and highest rated actor’s features
 
+1. **Data visualization**
 
+To visualize variations and parallels between the two methods, we will illustrate our observations using the following type of plot: 
 
+This is an example of results and observations we could obtain: 
+From year 1 to year 5, we observe diverging trends for the most selected and highest-rated features. We can conclude that the film industry doesn’t seem to choose their main actors depending on what viewers prefer.
+From year 6 to year 10, we observe converging trends for both curves meaning the film industry tends to take into account the viewer’s preferences when choosing their main actors.
+
+2. **Statistical analyses**
+
+We could perform a t-test to verify the observations made before. By looking at the p-value we could state if there are significant differences between the two distributions across all years and for specific years. In the previous example, interesting years to look at could be year 4 (highest difference) and year 10 (smallest difference).
+
+## Further analyses
+
+###  Machine Learning approach:  prediction of viewers’ ratings 
+
+Another interesting analysis could be trying to find a machine learning algorithm to predict the viewer’s ratings of a film depending on the characteristics of the main character. To do so, we will try to perform a linear regression on our data. However, it is difficult to predict now if it will be judicious to use this method. If not, we could use other approaches such as neural networks or decision trees. Next, we'll proceed to train the chosen machine learning algorithm using a predefined training set and test it with the testing dataset.
+
+###  Most profitable actor
+
+A further analysis could involve conducting a third study to determine the most profitable type of actor by examining the box office revenue. This analysis will help us understand which actor characteristics have the greatest impact on a movie’s financial success within the selected genre. The main challenge we encounter is the high number of missing values for this feature. Hence, we aim to conduct this analysis if we possess the time and means to enrich our database. 
+
+## Proposed timeline
+<div align="center">
+
+| Part   | Task                            | Deadline     |
+|--------|---------------------------------|--------------|
+| P2     | Data Preparation - Feasibility Analysis | done         |
+| P3.1   | Feature Extraction              | 24/11        |
+| P3.2   | Exploratory Analysis            | 01/12        |
+| P3.3   | Cross-Analysis                  | 08/12        |
+| P3.4   | Machine Learning                | 15/12        |
+| P3.5   | Data Story                      | 20/12        |
+| P3.6   | Most Profitable Actor (if enough time) | -            |
+
+</div>
 
 # Import data
 
