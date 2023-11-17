@@ -36,5 +36,3 @@ data/
     └── bo_mojo.csv
 
 ```
-
-## Rendu P2
