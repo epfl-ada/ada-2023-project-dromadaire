@@ -1,8 +1,8 @@
 
-# Title 
+# Most popular actor features VS users top-rated actor features: an ADAnalysis
 
 <p align="center">
-<img src="images/ab_giphy.gif" style="width: 30%;">
+<img src="images/ab_giphy.gif" style="width: 50%;">
 </p>
 
 ## Abstract
@@ -140,9 +140,9 @@ A further analysis could involve conducting a third study to determine the most 
 
 ## Project overview
 
-<center>
+<p align="center">
 <img src="images/Project_overview.png" style="width: 80%;">
-</center>
+</p>
 
 <br />
 <br />
