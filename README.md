@@ -72,6 +72,8 @@ The Wiki ID / IMDB ID can appear in several rows if there is more than one main 
 
 ### Feasibility analysis
 
+After carefully checking our merged dataset and dealing with any missing information, it was found that analyzing it is possible. The review showed that Drama is the most common movie genre, which allows us to look into 17,500 movies and a similar number of main actors. By using statistical methods, the aim is to discover patterns and preferences in the data about actors.
+
 ### Exploratory analysis: mode and preferred features
 
 To identify the most frequently chosen actor’s features, we will examine the mode for continuous features and the highest count for discrete ones. For determining preferred features, we will calculate the mean rating of movies within a specific actor feature to identify each highest-rated feature. We will ensure the selected features are significantly popular or preferred before finalizing our choices. Finally, we will visualize the distributions of these selected features over the years and explore potential significant differences in features across different years by performing t-test analysis.
