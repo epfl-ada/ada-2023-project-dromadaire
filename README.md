@@ -77,7 +77,7 @@ The Wiki ID / IMDB ID can appear in several rows if there is more than one main 
 
 <div align="center">
 
-| Wiki ID | IMDB ID | Actor ID | Order | Release year | Age | Gender | Roles in movies | Roles in drama movies | Awards | Oscars Nominations |
+| Wiki ID | IMDB ID | Actor ID | Ordering | Release year | Age | Gender | Roles in movies | Roles in drama movies | Awards | Oscars Nominations |
 |---------|---------|----------|-------|--------------|-----|--------|---------------|---------------------|--------|---------------------|
 | W_ID1   | I_ID1   | A_ID1    | 1     | year1        | Age1| Gender1| Nomination1    | NumDramaMovies1     | Awards1| Ethnicity1          |
 | W_ID1   | I_ID1   | A_ID2    | 2     | year1        | Age2| Gender2| NumMovies2    | NumDramaMovies2     | Awards2| Nomination2          |
@@ -115,7 +115,7 @@ This is an example of results and observations we could obtain:
 
 - From year 6 to year 10, we observe converging trends for both curves meaning the film industry tends to take into account the viewer’s preferences when choosing their main actors.
     </div>
-    <div style="width: 50%;">
+    <div style="width: 40%;">
         <img src="images/crossAnalysis.png" alt="Cross Analysis">Figure 1: Example of cross-analysis result</p>
     </div>
 </div>
