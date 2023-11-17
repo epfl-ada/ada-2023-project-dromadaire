@@ -57,7 +57,18 @@ All movies have a unique WikiID but can have the same name or the same release y
 
 **Dataframe 2: Main actors**
 
+The Wiki ID / IMDB ID can appear in several rows if there is more than one main character but the combination “Wiki ID + Actor ID” is unique.
 
+<div align="center">
+
+| Wiki ID | IMDB ID | Actor ID | Order | Release year | Age | Gender | Roles in movies | Roles in drama movies | Awards | Oscars Nominations |
+|---------|---------|----------|-------|--------------|-----|--------|---------------|---------------------|--------|---------------------|
+| W_ID1   | I_ID1   | A_ID1    | 1     | year1        | Age1| Gender1| Nomination1    | NumDramaMovies1     | Awards1| Ethnicity1          |
+| W_ID1   | I_ID1   | A_ID2    | 2     | year1        | Age2| Gender2| NumMovies2    | NumDramaMovies2     | Awards2| Nomination2          |
+| W_ID2   | I_ID2   | A_ID3    | 3     | year2        | Age3| Gender3| NumMovies3    | NumDramaMovies3     | Awards3| Nomination3          |
+
+
+</div>
 
 
 
