@@ -36,6 +36,8 @@ An inner merge was performed between IMDb and CMU movies, based on film names an
 
 A list of main actors was extracted from the IMDb principals dataset, and then merged with both the merged movies dataframe and Kaggle Awards dataset to add features nomination and awards.
 
+---
+
 ### Feature extraction
 
 
@@ -70,10 +72,13 @@ The Wiki ID / IMDB ID can appear in several rows if there is more than one main 
 
 </div>
 
+---
+
 ### Feasibility analysis
 
 After carefully checking our merged dataset and dealing with any missing information, it was found that analyzing it is possible. The review showed that Drama is the most common movie genre, which allows us to look into 17,500 movies and a similar number of main actors. By using statistical methods, the aim is to discover patterns and preferences in the data about actors.
 
+---
 ### Exploratory analysis: mode and preferred features
 
 To identify the most frequently chosen actor’s features, we will examine the mode for continuous features and the highest count for discrete ones. For determining preferred features, we will calculate the mean rating of movies within a specific actor feature to identify each highest-rated feature. We will ensure the selected features are significantly popular or preferred before finalizing our choices. Finally, we will visualize the distributions of these selected features over the years and explore potential significant differences in features across different years by performing t-test analysis.
@@ -82,11 +87,25 @@ To identify the most frequently chosen actor’s features, we will examine the m
 
 1. **Data visualization**
 
-To visualize variations and parallels between the two methods, we will illustrate our observations using the following type of plot: 
-
+To visualize variations and parallels between the two methods, we will illustrate our observations using the following type of plot.
 This is an example of results and observations we could obtain: 
+
+
+
+<div style="display: flex; justify-content: space-between;">
+    <div style="width: 53%;">
+        <!-- Your text goes here -->
+
 From year 1 to year 5, we observe diverging trends for the most selected and highest-rated features. We can conclude that the film industry doesn’t seem to choose their main actors depending on what viewers prefer.
 From year 6 to year 10, we observe converging trends for both curves meaning the film industry tends to take into account the viewer’s preferences when choosing their main actors.
+    </div>
+    <div style="width: 45%;">
+        <img src="images/crossAnalysis.jpg" alt="Cross Analysis" style="width: 100%;">
+        <p style="text-align: center;">Figure 1: Cross Analysis</p>
+    </div>
+</div>
+
+<br>
 
 2. **Statistical analyses**
 
