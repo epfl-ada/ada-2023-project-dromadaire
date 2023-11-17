@@ -174,4 +174,3 @@ A further analysis could involve conducting a third study to determine the most 
 
 - **Dimitri Jacquemont**: Explore analysis, Cross-analysis, Machine Learning, Data-story
 
-
