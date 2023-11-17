@@ -109,8 +109,7 @@ This is an example of results and observations we could obtain:
 - From year 6 to year 10, we observe converging trends for both curves meaning the film industry tends to take into account the viewer’s preferences when choosing their main actors.
     </div>
     <div style="width: 45%;">
-        <img src="images/crossAnalysis.jpg" alt="Example of cross Analysis result we could obtain" style="width: 100%;">
-        <p style="text-align: center;">Figure 1: Cross Analysis</p>
+        <img src="images/crossAnalysis.png" alt="Cross Analysis">Figure 1: Example of cross-analysis result</p>
     </div>
 </div>
 
