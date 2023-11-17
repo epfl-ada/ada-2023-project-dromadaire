@@ -43,10 +43,10 @@ A list of main actors was extracted from the IMDb principals dataset, and then m
 From our various dataset we will retain a few selection of features. For the actors we will keep an ID (sourced from the IMDb dataset), his name, age and gender. For the movies, we keep the wikipedia ID, the IMDb ID, the movie’s title, release year, genre(s) and rating.
 
 On top of that, we have a few additional actor features that we will engineer based on some simple statistics:
-- Awards won: the number of academy awards won by the actor prior to this role.
-- Nominations: similarly to the awards won but taking only nominations.
-- Previous roles: the number of roles the actor played in prior to this role.
-- Previous roles in the same genre: the above column filtered to keep only movies of the same genre
+- **Awards won**: the number of academy awards won by the actor prior to this role.
+- **Nominations**: similarly to the awards won but taking only nominations.
+- **Previous roles**: the number of roles the actor played in prior to this role.
+- **Previous roles in the same genre**: the above column filtered to keep only movies of the same genre
 
 This will lead to the creation of our final dataset composed of two data frames.
 
