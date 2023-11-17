@@ -115,6 +115,18 @@ A further analysis could involve conducting a third study to determine the most 
 
 </div>
 
+## Organization within the team
+
+- **Armance**: Feature extraction, Data Visualisation, Feasibility analysis, README
+
+- **Emeline**: Explore analysis, Cross-analysis, Machine Learning, Data-story
+
+- **Théo Houle**: Explore analysis, Cross-analysis, Data-story, README
+
+- **Kelan Solomon**: Feature extraction, Data Visualisation, Machine Learning, Feasibility analysis
+
+- **Dimitri Jacquemont**: Explore analysis, Cross-analysis, Machine Learning, Data-story
+
 # Import data
 
 In order to run the jupyter notebooks, you will need to download the dataset. To get it you can simply run the `import_data.py` script. If that doesn't work you can do it manually.
