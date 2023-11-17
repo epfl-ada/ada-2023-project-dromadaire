@@ -50,7 +50,8 @@ On top of that, we have a few additional actor features that we will engineer ba
 
 This will lead to the creation of our final dataset composed of two data frames.
 
-**Dataframe 1: Movies**
+<u>**Dataframe 1</u>: Movies**
+
 
 All movies have a unique WikiID but can have the same name or the same release year (not both at the same time), hence there are unique combinations of “name + year”
 
@@ -64,7 +65,7 @@ All movies have a unique WikiID but can have the same name or the same release y
 </div>
 
 
-**Dataframe 2: Main actors**
+**<u>Dataframe 2</u>: Main actors**
 
 The Wiki ID / IMDB ID can appear in several rows if there is more than one main character but the combination “Wiki ID + Actor ID” is unique.
 
