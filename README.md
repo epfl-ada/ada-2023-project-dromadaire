@@ -20,7 +20,7 @@ In the final phase of our project, we will conduct a comprehensive cross-analysi
 
 - Are there any predominant characteristics for actors chosen to portray main characters in a specific movie genre and does it evolve over time?
 
-- How does the notoriety of an actor influence his likeliness to be selected for a given role? Do the viewer's preferences influence the casting? How do honors such as Oscars influence the casting? Does the number of roles prior roles? 
+- How does the notoriety of an actor influence his likeliness to be selected for a main role? Do the viewer's preferences influence the casting? How do honors such as Oscars influence the casting? Does the number of roles prior roles? 
 
 
 ## Additional datasets
