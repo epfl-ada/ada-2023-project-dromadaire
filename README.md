@@ -95,7 +95,6 @@ The Wiki ID / IMDB ID and the Actor ID uniquely identify each entry.
 
 ### Feasibility analysis
 
-
 After checking the final datasets, we can conclude that our analysis is feasible. The features can be found within our datasets and there is enough data. We have implemented the option to change the number of main actors that will be analysed, thus growing our dataset if needed.
 
 ---
@@ -174,5 +173,3 @@ A further analysis could involve conducting a third study to determine the most 
 - **Kelan Solomon**: Feature extraction, Data Visualisation, Machine Learning, Feasibility analysis
 
 - **Dimitri Jacquemont**: Explore analysis, Cross-analysis, Machine Learning, Data-story
-
-
