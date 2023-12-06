@@ -173,3 +173,4 @@ A further analysis could involve conducting a third study to determine the most 
 - **Kelan Solomon**: Feature extraction, Data Visualisation, Machine Learning, Feasibility analysis
 
 - **Dimitri Jacquemont**: Explore analysis, Cross-analysis, Machine Learning, Data-story
+
