@@ -1,3 +1,6 @@
+---
+layout: home
+---
 # Dataset 1
 
 Source: [some url](https://www.kaggle.com/datasets/unanimad/the-oscar-award)
