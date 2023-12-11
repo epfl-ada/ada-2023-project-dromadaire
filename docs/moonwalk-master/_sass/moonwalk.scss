@@ -66,6 +66,7 @@ img {
 @mixin light-appearance {
   html, body {
       --bg: #FFF;
+      --image
       --bg-secondary: #f3f4f6;
       --headings: #1e293b;
       --text: #374151;
@@ -105,6 +106,7 @@ html[data-theme="light"] { @include light-appearance; }
 
 html, body {
     background-color: var(--bg);
+    background-image: '../assets/images/bg.jpg';
     color: var(--text);
 }
 h1, h2, h3, h4, h5, h6 {
