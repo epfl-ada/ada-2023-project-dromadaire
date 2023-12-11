@@ -10,12 +10,5 @@ $background-position: center;
 $background-color: rgb(215, 29, 29); // Set your background color
 
 body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: $background-color;
     background-image: $background-image;
-    background-repeat: $background-repeat;
-    background-size: $background-size;
-    background-position: $background-position;
 }
