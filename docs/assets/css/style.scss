@@ -1,0 +1,7 @@
+@import "{{ site.theme }}";
+
+$background-image: url("./../images/bg.png");
+
+body {
+    background-image: $background-image;
+}
