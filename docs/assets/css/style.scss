@@ -7,7 +7,7 @@ $background-image: url("./../images/bg.png");
 $background-repeat: no-repeat;
 $background-size: cover;
 $background-position: center;
-$background-color: rgb(215, 29, 29); // Set your background color
+$background-color: rgb(215, 29, 29, 0.3); // Set your background color
 
 body {
     background-image: $background-image;
