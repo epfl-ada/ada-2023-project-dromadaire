@@ -1,8 +1,12 @@
 ---
-layout: default
+layout: blog
+title: ADAnalysis
+background: assets/img/bg.jpg
 ---
 
 This is a summary of what our research is about (research questions). This is a rough summary of what we look for in our data
+
+{:.toc}
 
 #### Table of contents
 - [An ADAnalysis](#an-adanalysis)
