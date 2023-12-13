@@ -1,6 +1,6 @@
 title: An ADAnalysis
 
-favicon: "./popcorn.png" # relative path to site's favicon
+favicon:  /popcorn.png # relative path to site's favicon
 
 remote_theme: pages-themes/cayman@v0.2.0
 plugins:
