@@ -13,6 +13,14 @@
   }
 }
 
-body {
-  background-image: url("../img/background.jpg");
+html {
+  --body-bg : #1B2424;
+  --body-color : #A99EA3;
+  --border-color: #BBAB8B;
+  --menu-text: #BBAB8B;
+}
+
+.btm_img {
+  margin: 0 auto;
+  display: block;
 }

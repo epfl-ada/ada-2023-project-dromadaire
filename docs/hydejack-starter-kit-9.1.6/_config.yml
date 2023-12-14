@@ -37,9 +37,9 @@ keywords:              []
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
-logo:                  /assets/img/popcorn.png
+logo:                  /assets/img/popcorn.svg
 
-favicon:               /assets/img/popcorn.png
+favicon:               /assets/img/popcorn.svg
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
@@ -84,7 +84,7 @@ theme: jekyll-theme-hydejack
 # ----------------------------------------------------------------------------------------
  
 # Sidebar image and theme color of the site.
-accent_image:          /assets/img/popcorn.jpg
+accent_image:          /assets/img/background.jpg
 accent_color:          rgb(79,177,186)
 
 # This is used for the `theme-color` meta tag,
@@ -309,7 +309,7 @@ exclude:
   - Gemfile.lock
 include:
   - .well-known
-  - TEAM.MD
+  - TEAM
   - LICENCE
 
 
