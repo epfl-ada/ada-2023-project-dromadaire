@@ -1,26 +1,14 @@
 ---
-layout: blog
+layout: page
 title: ADAnalysis
-background: assets/img/bg.jpg
 ---
+
+- Toc
+{:toc}
+
+# Introduction
 
 This is a summary of what our research is about (research questions). This is a rough summary of what we look for in our data
-
-{:.toc}
-
-#### Table of contents
-- [An ADAnalysis](#an-adanalysis)
-      - [Table of contents](#table-of-contents)
-- [The data](#the-data)
-  - [Datasets](#datasets)
-    - [**Dataset 1**](#dataset-1)
-    - [...](#)
-  - [Shaping our final datasets](#shaping-our-final-datasets)
-- [Research](#research)
-- [Results](#results)
-- [Source](#source)
-
----
 
 # The data
 
@@ -55,3 +43,6 @@ Here we summarize the results that we found
 list of arcticles and whatever else we needed to get to our final result
 
 let's see if we actually keep this
+
+
+<img src="/assets/img/popcorn_bg.png" class="btm_img">
