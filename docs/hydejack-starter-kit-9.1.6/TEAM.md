@@ -1,6 +1,6 @@
 # These are the DromADAires
 
-- **Armance NOUVELLE**
+- **Armance NOUVEL**
 - **Emeline DEBALME**
 - **Dimitri JACQUEMONT**
 - **Kelan SOLOMON**
