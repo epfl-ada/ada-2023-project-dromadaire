@@ -14,6 +14,15 @@ Furthermore, looking into the main character of a movie allows us to conduct a d
 
 The goal of this project is to analyze the different attributes of the actors who portray them within a specific movie’s genre by studying the CMU Movie Corpus dataset. 
 
+We have chosen to conduct a comprehensive analysis of our dataset, integrating both mode analysis and preference analysis. In our exploration, we aim to identify the most frequently chosen actor’s features for main characters by utilizing the mode of each feature. Simultaneously, we explore the audience preferences by determining the top-rated attributes for each character feature. This combined analysis aims to provide a comprehensive understanding of the nuanced relationship between casting choices and audience expectations.
+
+# Filtering 
+
+We first perform a meticulous filtering of the dataset. In our dataset, we conducted a meticulous analysis of missing values across various columns, ensuring the robustness and relevance of our upcoming analytical initiatives. This careful examination allows us to ascertain the completeness of our data, laying a solid foundation for accurate and insightful analyses.
+=> mettre principaux résultats sur les missing values 
+
+Additionally, we dropped unused columns and opted to focus our analysis on a pivotal genre : the drama genre, constituting xx% of our movie dataset 
+
 
 # The data
 
