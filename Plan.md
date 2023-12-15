@@ -67,3 +67,90 @@ There is one massive "confounder" -> how good is the actor: a good actor will pl
 
 
 
+
+
+
+
+
+
+###################################################
+
+1 separe données 30 meilleurs et 30 pires %
+
+2 ttest general
+
+3 Nettoyer ModeAnal (enlever movie count genre, birthyear), enlever temp
+
+4 ajouter 
+
+5 
+
+--------------------------------------------
+
+Are the actor features for high and low rated movies the same or different?
+
+
+- separer data (Dim)
+
+- ttest pour chaque feature sur toutes années confondues (6 ttest) (Armance)
+    - voire influence generale
+
+- Viz 6 plots -> high is above, low is below (Dimitri)
+    Graph de dimi
+    - voir une correlation entre awards X nominations er Movie_count X movie_count_genre X genres_b4
+    - intéressant de voir que avant 1970, le nombre movie_count est haut masi après ca se rejoint -> plus important
+    - awards et nominations
+
+- Viz pointplot check awards X average Ratings (Kelan)
+
+- Correlation Emeline (Emeline)
+    - Correspond avec graph dimi mais en term de correlation
+
+- Correlation avec ratings (Kelan)
+    - Awards et nominations ont le plus gros impact mais ils sont corellés entre eux
+
+- Linear model (peut etre logistic regression) (Theo)
+    - voir si awards a vraiment une influence ou pas, check p value
+- Matching (Theo)
+    - avec awards, check if awards really has an influence on ratings
+
+- Linear model (peut etre logistic regression) (Theo)
+    - voir si awards a vraiment une influence ou pas, check pvalue, et la difference ave 1ere logreg
+
+- PCA (Emeline)
+    - lookout for clusters
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
