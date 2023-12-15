@@ -1,0 +1,26 @@
+.dl-table {
+  a {
+    @supports ((text-decoration-thickness: initial) and (text-underline-offset: initial)) {
+      text-underline-offset: .8rem;
+    }
+    @supports not ((text-decoration-thickness: initial) and (text-underline-offset: initial)) {
+      padding-bottom: .45rem;
+    }
+  }
+
+  .btn, .gumroad-button  {
+    margin: 1rem 0;
+  }
+}
+
+html {
+  --body-bg : #1B2424;
+  --body-color : #A99EA3;
+  --border-color: #BBAB8B;
+  --menu-text: #BBAB8B;
+}
+
+.btm_img {
+  margin: 0 auto;
+  display: block;
+}
