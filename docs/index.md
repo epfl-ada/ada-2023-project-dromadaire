@@ -8,6 +8,9 @@ title: ADAnalysis
 
 # Introduction
 
+
+{% include age_at_release.html %}
+
 The main character has a key role in the realm of cinema because he drives the action. Indeed, he is the narrative focal point that holds the entire story together and serves as the audience’s guide. Main characters often become the emblem of a movie, such as Jack Sparrow for "Pirates of the Caribbean" or Harry Potter for the "Harry Potter" series. This is the reason why we hold our interest on the main character in this study. 
 
 Furthermore, looking into the main character of a movie allows us to conduct a different analysis, perhaps closer to reality than examining all the characters. Take "James Bond," for example. While there are plenty of side characters, particularly female ones, they tend to stay in the background. Analyzing all characters might give us features that differ from the true spirit of the movie. Focusing on the main character is where the real action is. So, when things might seem a bit biased or not quite right, checking out the main character is like peeling back the layers to reveal what the movie's really all about. 
