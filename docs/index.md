@@ -93,6 +93,3 @@ Here we summarize the results that we found
 list of arcticles and whatever else we needed to get to our final result
 
 let's see if we actually keep this
-
-
-<img src="/assets/img/popcorn_bg.png" class="btm_img">
