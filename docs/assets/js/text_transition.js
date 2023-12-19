@@ -8,7 +8,7 @@ function parseTranslateX(str){
 
 var maxPx = 0;
 
-function getFirstMaxPx(target) {
+function getFirstMaxPx(parsed) {
     if(parsed > maxPx){
         maxPx = parsed;
         console.log("New maxpPx: " + maxPx.toString());
