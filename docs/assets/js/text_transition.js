@@ -9,14 +9,12 @@ function parseTranslateX(str){
 var maxPx = 0;
 
 function getFirstMaxPx(target) {
-    try {
-        console.log(target.style.transform)
-        maxPx = parseTranslateX(target.style.transform);
-        console.log("New maxpPx: " + maxPx.toString())
-    } catch(e){
-        console.log(e)
+    if(parsed > maxPx){
+        maxPx = parsed;
+        console.log("New maxpPx: " + maxPx.toString());
+    } else {
+        console.log("Max is not bigger");
     }
-
 }
 
 // Map a value in a given interval to another interval
@@ -41,15 +39,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Observe mutations on the sidebar to sync our animation to it
     const target = document.getElementById('_sidebar');
-    console.log("Get first max px")
-    getFirstMaxPx(target);
-
+    
     // Create a new MutationObserver with the callback function
     const observer = new MutationObserver(function(mutations){
         for (const mutation of mutations) {
             if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
                 // Get the current translateX value, map it to the interval [1,2] and invert it (bigger the translation, smaller the scale)
                 const int = parseTranslateX(mutation.target.style.transform);
+                getFirstMaxPx(int);
                 const mapped = 3 - mapValue(int);
 
                 // Set the scaling of the div containing the icon, title and subtitle to the mapped value
