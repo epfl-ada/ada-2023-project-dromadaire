@@ -9,10 +9,8 @@ function parseTranslateX(str){
 var maxPx = 0;
 
 function getFirstMaxPx(target) {
-    if(maxPx != 0){
-        return;
-    }
     try {
+        console.log(target.style.transform)
         maxPx = parseTranslateX(target.style.transform);
         console.log("New maxpPx: " + maxPx.toString())
     } catch(e){
@@ -43,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Observe mutations on the sidebar to sync our animation to it
     const target = document.getElementById('_sidebar');
+    console.log("Get first max px")
     getFirstMaxPx(target);
 
     // Create a new MutationObserver with the callback function
