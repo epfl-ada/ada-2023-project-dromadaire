@@ -6,9 +6,24 @@ function parseTranslateX(str){
     return integerValue;
 }
 
+var maxPx = 0;
+
+function getFirstMaxPx(target) {
+    if(maxPx != 0){
+        return;
+    }
+    try {
+        maxPx = parseTranslateX(target.style.transform);
+        console.log("New maxpPx: " + maxPx.toString())
+    } catch(e){
+        return;
+    }
+
+}
+
 // Map a value in a given interval to another interval
 function mapValue(value) {
-    const [fromMin, fromMax] = [0, 728]; // TODO: make sure this doesn't change from device to device
+    const [fromMin, fromMax] = [0, maxPx]; // TODO: make sure this doesn't change from device to device
     const [toMin, toMax] = [1,2];
   
     // Ensure the value is within the source interval
@@ -20,11 +35,15 @@ function mapValue(value) {
     return mappedValue;
 }
 
+
 // Wait for the DOM to be loaded
 document.addEventListener("DOMContentLoaded", function() {
     
+    console.log("Window width" + window.innerWidth.toString())
+
     // Observe mutations on the sidebar to sync our animation to it
     const target = document.getElementById('_sidebar');
+    getFirstMaxPx(target);
 
     // Create a new MutationObserver with the callback function
     const observer = new MutationObserver(function(mutations){

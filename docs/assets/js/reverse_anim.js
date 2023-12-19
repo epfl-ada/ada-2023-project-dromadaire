@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.addEventListener("wheel", function(e) {
         const drawer = document.getElementById('_drawer');
-        console.log(drawer.hasAttribute('opened'));
         if (window.scrollY == 0 && !drawer.hasAttribute('opened') && e.deltaY < 0) {
             const drawerLink = document.getElementById('_menu');
             
