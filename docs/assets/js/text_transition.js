@@ -16,7 +16,7 @@ function getFirstMaxPx(target) {
         maxPx = parseTranslateX(target.style.transform);
         console.log("New maxpPx: " + maxPx.toString())
     } catch(e){
-        return;
+        console.log(e)
     }
 
 }
