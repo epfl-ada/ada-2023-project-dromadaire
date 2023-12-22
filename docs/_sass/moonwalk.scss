@@ -31,6 +31,11 @@ p { margin: 1em 0; }
 
 li { margin: 0.4em 0; }
 
+.plotly-graph-div {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
 .w:not(.parent) {
   max-width: 70%;
   margin: 0 auto;

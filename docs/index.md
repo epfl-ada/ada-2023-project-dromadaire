@@ -148,9 +148,7 @@ We will now analyse more specifically the most influential actor’s features im
 
 In the following word clouds, we can observe the top 15 actors for the three features mentioned above. This can be considered a sanity check to be sure that our 3 most influential features are not tied to the same actors which would influence our analyses.
 
-<img src="assets/images/wc_nominations.jpeg" width="300">
-<img src="assets/images/wc_connections.jpeg" width="300">
-<img src="assets/images/wc_diversity.jpeg" width="300">
+<img src="assets/images/wc.jpeg" width="500">
 
 ### Nominations
 
@@ -190,13 +188,88 @@ We can observe an extremely low p-value, much smaller than 0.05. It leads us to 
 
 To check that it is indeed the nomination that influences the rating and not some confounder we will apply matching. Since we have varying data, we will be matching on closeness, for example, we have set a closeness of 3 for the age, therefore an actor of 33 years old can be matched with an actor of 30.
 
+The following causal diagram shows that there are multiple possible confounders on the nominations.
 
-# Results
+<img src="assets/images/flow_graph.jpeg">
 
-Here we summarize the results that we found 
+The logistic regression before the matching shows that having a nomination significantly increases the chances of playing in high-rated movies. The log odds ratios predicted are -0.14 for the intercept and 0.98 for the has_nomination. These coefficients have p-values of 0.000, which suggests that both are statistically significant predictors of the outcome variable. In terms of probabilities, these results mean that when an actor doesn’t have nominations, the probability of playing in a high-rated movie is 46%, while having a nomination increases the probability to 70%. The Pseudo R-squared value is 0.015, which is a bit low, indicating that the model doesn't explain a large portion of the variance in the outcome.
 
-# Source
 
-list of arcticles and whatever else we needed to get to our final result
+**Logistic regression after matching**
 
-let's see if we actually keep this
+The logistic regression after the matching shows slightly different results. The log odds ratios predicted are -0.11 for the intercept and 0.8 for the has_nomination. These coefficients have p-values of 0.17 and 0.00 respectively, which suggests that only the second one is a statistically significant predictor of the outcome variable. In terms of probabilities, these results mean that when an actor doesn’t have nominations, the probability of playing in a high-rated movie is 47%, while having a nomination increases the probability to 67%. The Pseudo R-squared value is 0.024.
+
+In summary, after matching, the model indicates that having a nomination still significantly increases the likelihood of playing in high-rated movies. Still, the magnitude of this effect is slightly less than what was initially estimated. This means that due to confounders, the initial model overestimated the effect having a nomination has on the ratings of movies. The baseline probability slightly changed, and the model fit has improved, suggesting the matching process allowed a better fit of the data.
+
+
+### Actors Connections
+
+Now let's continue looking at our features by analyzing the actor connections. 
+
+{% include plots/histogram_actor_connections.html %}
+
+As we can see, our distributions are not normal and we can therefore not apply a t-test. We can however use a [Mann–Whitney U](https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test)  test as we can assume that
+- All the observations from both groups are independent of each other
+- The responses are at least ordinal (i.e., one can at least say, of any two observations, which is the greater)
+- Under the null hypothesis H0, the distributions of both populations are identical.
+- The alternative hypothesis H1 is that the distributions are not identical.
+
+With a Mann Whitney u p-value of 1.18e-86, we can see from this test that the actor’s connections feature is indeed statistically significant. 
+
+### Genre diversity
+
+{% include plots/histogram_genre_diversity.html %}
+
+We can see that there is a slight difference in these two distributions, but are they significant? We can apply an identical reasoning to genre diversity. The Mann-Witney test also gives a low p-value (3.84e-160), implying its statistical significance.
+
+### Overall analysis
+
+Now that we have had a look at the important actor features, let's see if we can visualise a difference between actors who play in highly rated movies and ones who play in poorly rated movies. To do this we first must do a PCA on our data, this allows us to plot multiple features on a 2D plot. 
+
+{% include plots/graph_PCA_actors_movies.html %}
+
+Unfortunately, we can’t see any evident clusters in this graph. But this was expected as we saw that the period of the film plays a large role. Let's have a look at the different decades!
+
+{% include plots/graph_PCA_over_years.html %}
+
+
+# Machine Learning
+
+So far we have seen that there is indeed a difference in actor features between extreme movie ratings, the question is: is it possible to use machine learning to classify films into “Good” and “Bad” movies? To do this we will use a Random Forest Classifier as it excels in dealing with complex and varied data. Its ability to manage outliers and reveal key influencing features made it a more suitable choice for our movie data, compared to simpler models like logistic regression.
+
+Our model was trained on the most influential features to distinguish well-rated movies from poorly rated ones. These include the actors' industry connections, their experience across various genres, the number of nominations they have received, and their filmography volume. We trained our classifier on 70% of our dataset, using the remaining 30% to test and evaluate the model's predictive capabilities. Additionally, we employed Grid Search for optimal parameter tuning.
+
+Interestingly, the model's effectiveness seems to significantly rely on the actors' connections, which held a pronounced impact on the predictions. However, our evaluation metrics indicate that while the model fits the training data to some extent, it has a hard time predicting a movie's success based solely on its cast.
+
+{% include plots/graph_features_importance_forest_model.html %}
+
+The following results indicate that the random forest classifier is somewhat better at identifying actors playing in poorly rated movies (instance of class 0) than actors playing in well rated movies (instance of class 1). The overall accuracy is moderate (0.59), and there's a significant difference in recall between the two classes, which could indicate a potential area for model improvement, especially in correctly identifying more instances of highly rated movies.
+
+|            | precision | recall | f1-score | support |
+|------------|-----------|--------|----------|---------|
+| 0          | 0.58      | 0.73   | 0.65     | 7387    |
+| 1          | 0.61      | 0.45   | 0.52     | 6977    |
+| accuracy   |           |        | 0.59     | 14364   |
+| macro avg  | 0.60      | 0.59   | 0.58     | 14364   |
+| weighted avg | 0.60    | 0.59   | 0.59     | 14364   |
+
+
+If we try to predict the outcome for years only before 1950, we can see that we get a slightly better outcome. In fact, the precision at identifying actors playing in well-rated and poorly-rated movies has increased. The overall accuracy is also better (0.65 instead of 0.59).
+These observations align with our previous findings.
+
+
+|            | precision | recall | f1-score | support |
+|------------|-----------|--------|----------|---------|
+| 0          | 0.63      | 0.72   | 0.67     | 1106    |
+| 1          | 0.67      | 0.58   | 0.62     | 1087    |
+| accuracy   |           |        | 0.65     | 2193   |
+| macro avg  | 0.65      | 0.65   | 0.65     | 2193   |
+| weighted avg | 0.65    | 0.65   | 0.65     | 2193   |
+
+
+Further analysis could involve exploring additional features or different machine learning algorithms. For instance, incorporating directorial or production-related variables might enhance the model's predictive power. Alternatively, experimenting with other classification methods like Support Vector Machines or Neural Networks could offer new insights into the complex dynamics of movie success prediction.
+
+
+# Conclusion
+
+In conclusion, our exploration into the relationship between actor features and movie ratings has shown valuable insights. The ability to distinguish between actor features in high-rated and low-rated movies implies a pattern that could contribute to the overall success of a film. Interestingly, this distinction is slightly more pronounced in older movies, suggesting an evolving landscape in recent years where actor features in high-rated and low-rated movies display greater similarity. This shift may reflect changing viewer preferences or evolving cinematic trends. The exploration of awards and nominations, the influence of actors, and the impact of actor’s connections on movie ratings all contribute to a nuanced understanding of the intricate dynamics within the realm of cinema. However, it is crucial to acknowledge the complexities of attributing success solely to actor features. Numerous factors, such as the director's vision, screenplay, and cultural context, also significantly influence a movie's reception. Moreover, our analysis is subject to limitations, and achieving a definitive correlation is challenging as we have seen with our PCA analysis. A more extensive dataset or comparison with IMDb scores, which incorporate additional metrics, could offer a more nuanced and precise understanding. As we conclude this analysis, it becomes evident that actor features play a role in shaping viewer perception, yet cinematic success involves a multitude of factors extending beyond the realm of individual actors.
