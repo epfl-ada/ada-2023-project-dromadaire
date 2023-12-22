@@ -16,6 +16,7 @@
         bgImg.src = "assets/images/background_light.jpg"
         localStorage.setItem('theme', 'light');
         setTimeout(() => {
+          let currentTheme = document.documentElement.getAttribute('data-theme');
           if(currentTheme === 'light'){
             alert("Hey! People are trying to watch a movie here! Turn off the lights!!!")
           }
