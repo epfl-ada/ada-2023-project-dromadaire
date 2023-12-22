@@ -9,13 +9,19 @@
 
     button.addEventListener('click', function (e) {
       let currentTheme = document.documentElement.getAttribute('data-theme');
+      let bgImg = document.getElementById('welcome');
       if (currentTheme === 'dark') {
         transition();
         document.documentElement.setAttribute('data-theme', 'light');
+        bgImg.src = "assets/images/background_light.jpg"
         localStorage.setItem('theme', 'light');
+        setTimeout(() => {
+          alert("Hey! People are trying to watch a movie here! Turn off the lights!!!")
+        }, 3000)
       } else {
         transition();
         document.documentElement.setAttribute('data-theme', 'dark');
+        bgImg.src = "assets/images/background.jpg"
         localStorage.setItem('theme', 'dark');
       }
     });
