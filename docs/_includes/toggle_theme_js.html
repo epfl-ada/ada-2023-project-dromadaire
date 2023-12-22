@@ -16,7 +16,9 @@
         bgImg.src = "assets/images/background_light.jpg"
         localStorage.setItem('theme', 'light');
         setTimeout(() => {
-          alert("Hey! People are trying to watch a movie here! Turn off the lights!!!")
+          if(currentTheme === 'light'){
+            alert("Hey! People are trying to watch a movie here! Turn off the lights!!!")
+          }
         }, 3000)
       } else {
         transition();
