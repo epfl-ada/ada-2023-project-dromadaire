@@ -148,14 +148,47 @@ We will now analyse more specifically the most influential actor’s features im
 
 In the following word clouds, we can observe the top 15 actors for the three features mentioned above. This can be considered a sanity check to be sure that our 3 most influential features are not tied to the same actors which would influence our analyses.
 
-### ???
+<img src="assets/images/wc_nominations.jpeg" width="300">
+<img src="assets/images/wc_connections.jpeg" width="300">
+<img src="assets/images/wc_diversity.jpeg" width="300">
+
+### Nominations
+
+{% include plots/graph_awards_vs_ratings.html %}
+
+Here we are plotting the average nominations/awards won per rating. We can observe a very slight increase in nominations and awards won as the rating increases meaning that films with high ratings generally have more awards and nominations. Unfortunately, these features are too sparse in the higher film ratings, hence the high confidence interval.
+
+{% include plots/graph_ratings_vs_awards.html %}
+
+These two plots show that there is indeed a difference in movie ratings in terms of awards and nominations received. In other words, actors with awards and nominations generally play in better-rated movies. 
+ 
+On the nominations plot, the confidence interval explodes after 6 nominations due to sparse data, however before that, we can see an important increasing trend.
+ 
+Another interesting observation is that we can distinguish films with and without nominations, as having more than one nomination is not statistically significant.
+
+To simplify our dataset we will add two columns: 
+
+- **has award**:  binary indicator that indicates whether a movie has received an award (True) or not (False)
+- **has nomination**: binary indicator that indicates whether a movie has received a nomination (True) or not (False)
+
+Since the amount of nominations/awards has little influence as long as it is above 0. 
+
+### Chi-square
+
+To check if the rating and nominations are associated or not, we are performing a Chi-square test since our value is categorical. These are our hypothesis:
+
+Null hypothesis (H0):
+- The proportion of nominations between high-rated and low-rated movies is equal. There is no association between the ratings of a movie and the number of nominations received by the actors who play in it 
+
+Alternative hypothesis(Ha):
+- The proportion of nominations won between high-rated and low-rated movies is not equal. There is a significant association between the ratings and the number of nominations received by the actors who play in it.
 
 
+We can observe an extremely low p-value, much smaller than 0.05. It leads us to the rejection of the null hypothesis and suggests that there is a significant association between the nominations and the ratings of a movie. This extremely low value could be explained by the very large sample size that we have. Even small deviations from the null hypothesis may result in extremely low p-values and the p-value might be statistically significant but not practically significant. 
 
+### Matching
 
-
-
-
+To check that it is indeed the nomination that influences the rating and not some confounder we will apply matching. Since we have varying data, we will be matching on closeness, for example, we have set a closeness of 3 for the age, therefore an actor of 33 years old can be matched with an actor of 30.
 
 
 # Results
