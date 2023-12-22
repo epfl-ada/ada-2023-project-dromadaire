@@ -27,9 +27,13 @@ This README documents our journey through this analytical process. It begins wit
 
 ## 2. Research Questions <a class="anchor" id="rq"></a>
 
-- Is there a pattern that distinguishes actors in well-rated movies from those in poorly-rated ones? In other words, do certain types of actors or their specific attributes correlate with the overall success of a film as indicated by its IMDb rating?
+- Can an actor's success in terms of awards and nominations impact the ratings of the movies in which they appear?
+
+- Do viewers tend to rate higher movies in which prolific actors appear?
 
 - How do the connections between actors influence the ratings of the movies they are in?
+
+- Do physical attributes of actors, in terms of age and gender, influence the ratings of the movies they play roles in?
 
 ## 3. Additional Datasets <a class="anchor" id="ad"></a>
 
