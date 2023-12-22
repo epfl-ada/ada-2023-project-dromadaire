@@ -1,29 +1,41 @@
 
-# Most popular actor features VS users top-rated actor features: an ADAnalysis
+# Exploring the World of Cinema through Data: an ADAnalysis
 
 <p align="center">
 <img src="images/ab_giphy.gif" style="width: 50%;">
 </p>
 
-## Abstract
+Web Story : https://epfl-ada.github.io/ada-2023-project-dromadaire/
 
-Main characters often drive the plot and central themes of a movie. Hence, it is interesting to concentrate our analysis exclusively on the main characters and study the attributes (such as their age, gender,...) of the actors who portray them. The goal of this data analysis project is to gain insight into the casting and viewers’ preferences for main actors within a specific movie genre.
+## Table of Contents
 
-Firstly, we'll filter the dataset based on key criteria: prominent genre, relevant time period, main character, and pertinent features. Next, we'll conduct two studies on the filtered dataset:
+* [1. Abstract](#abstract)
+* [2. Research Questions](#rq)
+* [3. Additional Datasets](#ad)
+* [4. Methods](#methods)
+* [5. Further Analysis](#fa2)
+* [6. Project Overview](#po)
+* [7. Team Orgnization](#to)
 
-1. **Mode Analysis:** Identifying the most frequently chosen actor’s features for main characters.
-2. **Preference Analysis:** Determining the audience's top-rated attributes for each character feature to discern the most preferred actor’s features.
+## Abstract <a class="anchor" id="abstract"></a>
 
-In the final phase of our project, we will conduct a comprehensive cross-analysis of the outcomes from the two distinct studies to identify recurring patterns in actor preferences.
+Main characters often drive the plot and central themes of a movie, making them crucial to the audience's experience and perception. This data analysis project focuses on these pivotal figures, aiming to unravel the intricate relationship between casting choices and audience preferences for main actors within various movie genres. Utilizing datasets like the CMU Movie Corpus and IMDb, we delve into a comprehensive analysis of actor attributes such as age, gender, and career accomplishments.
 
-## Research Questions
+Our research is guided by key questions: Do specific actor attributes correlate with higher movie ratings? How do these attributes and their impact on film success evolve over time? By filtering our dataset based on time period and primary character features, we aim to uncover patterns and trends that influence cinematic success.
 
-- Are there any predominant characteristics for actors chosen to portray main characters in a specific movie genre and does it evolve over time?
+This README documents our journey through this analytical process. It begins with a description of the data sources and an overview of our methodological approach, including data preprocessing, exploratory analysis, and advanced statistical techniques. We then present our findings, discussing their implications for the film industry and potential future research directions. The structure of this document is designed to provide a clear, cohesive narrative of our analytical exploration, offering insights into the fascinating world of cinema through the lens of data.
 
-- How does the notoriety of an actor influence his likeliness to be selected for a main role? Do the viewer's preferences influence the casting? How do honors such as Oscars influence the casting? Does the number of roles prior roles? 
+## 2. Research Questions <a class="anchor" id="rq"></a>
 
+- Can an actor's success in terms of awards and nominations impact the ratings of the movies in which they appear?
 
-## Additional datasets
+- Do viewers tend to rate higher movies in which prolific actors appear?
+
+- How do the connections between actors influence the ratings of the movies they are in?
+
+- Do physical attributes of actors, in terms of age and gender, influence the ratings of the movies they play roles in?
+
+## 3. Additional Datasets <a class="anchor" id="ad"></a>
 
 - **IMDb Non-Commercial Datasets**: The datasets include various aspects of movie and TV shows data like titles, crew, ratings, and episode details. In this project we use datasets title.basics (basic title information), title.principals (main participants), title.ratings (user ratings), and name.basics (personnel details).
 Source: https://datasets.imdbws.com/
@@ -31,114 +43,159 @@ Source: https://datasets.imdbws.com/
 - **Kaggle Awards Dataset**: This dataset is a scraping of the official Academy Awards, listing winners and nominees between 1927 and 2023. A typical row indicates that a given actor was nominated in a given year for a given movie and whether an oscar was won or not.
 Source: https://www.kaggle.com/datasets/unanimad/the-oscar-award
 
-## Methods
 
-### Data preparation
+## 4. Methods <a class="anchor" id="methods"></a>
 
-In the data preparation phase, we conducted a thorough analysis of data types, including the transformation of dd/mm/yyyy to years, for example. Unused columns were dropped, and the remaining ones were renamed for consistency. 
+### Data Preparation
 
-An inner merge was performed between IMDb and CMU movies, based on movie name and release date, augmenting the dataset with ratings and IMDb IDs.
+In the data preparation stage, our team meticulously analyzed and transformed various data types, converting date formats from dd/mm/yyyy to year-only format. We eliminated columns that were not needed and renamed the remaining ones for uniformity.
 
-A list of main actors was extracted from the IMDb principals dataset, and then merged with both the merged movies dataframe and Kaggle Awards dataset to add features nomination and awards.
+We enriched our dataset by performing an inner join between IMDb and CMU movies datasets, using movie titles and release dates as key identifiers. This process integrated additional details such as ratings and IMDb IDs into our data.
 
----
+Furthermore, we extracted a list of lead actors from the IMDb principals dataset and merged this with our combined movies dataframe. To enhance the data further, we also incorporated information from the Kaggle Awards dataset, adding vital features like nominations and awards.
 
-### Feature extraction
+### Feature Engineering and Extraction
 
-From our various dataset we will retain a few selection of features. For the actors we will keep an ID (sourced from the IMDb dataset), his name, age and gender. For the movies, we keep the wikipedia ID, the IMDb ID, the movie’s title, release year, genre(s) and rating.
+In our datasets, we selectively retain specific features. For actors, we include an ID (from IMDb), name, age, and gender. Movie-related features include the Wikipedia ID, IMDb ID, title, release year, genres, and rating.
 
-On top of that, we have a few additional actor features that we will engineer based on some simple statistics:
-- **Awards won**: the number of academy awards won by the actor prior to this role.
-- **Nominations**: similarly to the awards won but taking only nominations.
-- **Previous roles**: the number of roles the actor played in prior to this role.
-- **Previous roles in the same genre**: the above column filtered to keep only movies of the same genre
+Additional actor features are engineered through simple statistical methods:
+- **Awards Won**: Count of Academy Awards the actor won before the role.
+- **Nominations**: Count of Academy Award nominations prior to the role.
+- **Previous Roles**: Total number of roles played by the actor beforehand.
+- **Genre Diversity**: Variety of genres the actor has appeared in previously.
+- **Age at Release**: Actor's age at the time of the movie's release.
 
-This will lead to the creation of our final dataset composed of two data frames.
+<u>**Dataframe 1: Movies**</u>
 
-<u>**Dataframe 1</u>: Movies**
+Each movie is uniquely identified by its WikiID but might have overlapping names or release years. Unique combinations are formed by "name + year."
 
-
-Each movie has a unique WikiID but may share the same name or release year (not simultaneously). Therefore, there are unique combinations of "name + year."
-
-<div align="center">
-
-| Wiki ID | Movie name | Release year | Genres | Rating |
-|---------|------------|--------------|--------|--------|
-| W_ID1   | name1      | year1        | Genre1 | Rating1|
-| W_ID2   | name1      | year2        | Genre2 | Rating2|
-| W_ID3   | name2      | year1        | Genre3 | Rating3|
-
-<caption>Table 1: Illustration of what final dataframe 1 would resemble" </caption>
-
+<div align="center" style="overflow: hidden; border-radius: 10px;">
+  <table border="1" cellpadding="5" style="border-collapse: collapse; border-radius: 10px;">
+    <caption><i>Table 1: Example of Movies Dataframe</i></caption>
+    <thead>
+      <tr>
+        <th style="border-top-left-radius: 10px;">Wiki ID</th>
+        <th>Movie Name</th>
+        <th>Release Year</th>
+        <th>Genres</th>
+        <th style="border-top-right-radius: 10px;">Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>W_ID1</td>
+        <td>MovieName1</td>
+        <td>Year1</td>
+        <td>Genre1</td>
+        <td>Rating1</td>
+      </tr>
+      <tr>
+        <td>W_ID2</td>
+        <td>MovieName1</td>
+        <td>Year2</td>
+        <td>Genre2</td>
+        <td>Rating2</td>
+      </tr>
+      <tr>
+        <td>W_ID3</td>
+        <td>MovieName2</td>
+        <td>Year1</td>
+        <td>Genre3</td>
+        <td>Rating3</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
 
 <br>
 
-**<u>Dataframe 2</u>: Main actors**
+<u>**Dataframe 2: Main Actors**</u>
 
-The Wiki ID / IMDB ID and the Actor ID uniquely identify each entry.
+Entries are uniquely identified by the combination of Wiki ID / IMDb ID and Actor ID.
 
-<div align="center">
-
-| Wiki ID | IMDB ID | Actor ID | Ordering | Release year | Age | Gender | Roles in movies | Roles in drama movies | Awards | Oscars Nominations |
-|---------|---------|----------|-------|--------------|-----|--------|---------------|---------------------|--------|---------------------|
-| W_ID1   | I_ID1   | A_ID1    | 1     | year1        | Age1| Gender1| Nomination1    | NumDramaMovies1     | Awards1| Ethnicity1          |
-| W_ID1   | I_ID1   | A_ID2    | 2     | year1        | Age2| Gender2| NumMovies2    | NumDramaMovies2     | Awards2| Nomination2          |
-| W_ID2   | I_ID2   | A_ID3    | 3     | year2        | Age3| Gender3| NumMovies3    | NumDramaMovies3     | Awards3| Nomination3          |
-
-<caption>Table 2: Illustration of what final dataframe 2 would resemble" </caption>
-
+<div align="center" style="overflow: hidden; border-radius: 10px;">
+  <table border="1" cellpadding="5" style="border-collapse: collapse; border-radius: 10px;">
+    <caption><i>Table 2: Example of Main Actors Dataframe</i></caption>
+    <thead>
+      <tr>
+        <th style="border-top-left-radius: 10px;">**Wiki ID**</th>
+        <th>IMDb ID</th>
+        <th>Actor ID</th>
+        <th>Ordering</th>
+        <th>Release Year</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Roles in Movies</th>
+        <th>Awards</th>
+        <th>Nominations</th>
+        <th>Genre Diversity</th>
+        <th style="border-top-right-radius: 10px;">Age at Release</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>W_ID1</td>
+        <td>I_ID1</td>
+        <td>A_ID1</td>
+        <td>1</td>
+        <td>Year1</td>
+        <td>Age1</td>
+        <td>Gender1</td>
+        <td>NumRoles1</td>
+        <td>Award1</td>
+        <td>Nomination1</td>
+        <td>4</td>
+        <td>30</td>
+      </tr>
+      <tr>
+        <td>W_ID1</td>
+        <td>I_ID1</td>
+        <td>A_ID2</td>
+        <td>2</td>
+        <td>Year1</td>
+        <td>Age2</td>
+        <td>Gender2</td>
+        <td>NumRoles2</td>
+        <td>Award2</td>
+        <td>Nomination2</td>
+        <td>2</td>
+        <td>25</td>
+      </tr>
+      <tr>
+        <td>W_ID2</td>
+        <td>I_ID2</td>
+        <td>A_ID3</td>
+        <td>3</td>
+        <td>Year2</td>
+        <td>Age3</td>
+        <td>Gender3</td>
+        <td>NumRoles3</td>
+        <td>Award3</td>
+        <td>Nomination3</td>
+        <td>1</td>
+        <td>40</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
----
-
-### Feasibility analysis
-
-After checking the final datasets, we can conclude that our analysis is feasible. The features can be found within our datasets and there is enough data. We have implemented the option to change the number of main actors that will be analysed, thus growing our dataset if needed.
 
 ---
-### Exploratory analysis: mode and top-rated attributes
 
-To identify the most frequently chosen actor’s features, we will examine the mode of the data. For determining the top-rated attributes, the mean rating of movies is calculated within a specific actor attribute to identify each top-rated attribute. The distributions of these selected features will be visualized over the years to explore potential differences in value by performing t-test analysis.
+### Feasibility Analysis
 
-### Cross-analysis: differences between the most chosen and highest rated actor’s features
+Upon reviewing the final datasets, we confirm the feasibility of our analysis. The required features are present, and the data volume is sufficient. We've also introduced flexibility by allowing the selection of a varying number of main actors, enabling us to expand our dataset as necessary.
 
-1. **Data visualization**
-
-To visualize variations and parallels between the two methods, we will illustrate our observations using the following type of plot.
-This is an example of results and observations we could obtain: 
-
-<p align="center">
-<img src="images/crossAnalysis.png" style="width: 40%;">
-</p>
-<p align="center">
-<em>Example of cross-analysis result</em>
-</p>
-
-- Years 1 to 5 show diverging trends in the most selected and highest-rated features, suggesting the film industry doesn't align actor selection with viewer preferences.
-
-- In contrast, years 6 to 10 reveal converging trends, indicating the industry may consider viewer preferences when choosing main actors.
+### Exploratory Data Analysis
 
 
+In the Exploratory Data Analysis section, our initial focus is on thoroughly examining essential actors and movies features for our analysis, including age, gender, awards, nominations, and genre diversity. This step is crucial for grasping the fundamental characteristics of our dataset. Following this, we engage in a time series analysis to track the evolution of these actor features over time. This approach offers valuable insights into the shifting trends within the film industry.
 
-<br>
+### Diving into the Research Questions
 
-2. **Statistical analyses**
+n this section, we track actor feature trends over time and distinguish between high-rated and low-rated films to identify key attributes linked to film success. Our analysis includes correlating actor features with movie ratings, conducting a temporal examination to observe how these correlations evolve, and comparing actor data from differently rated movies to discern patterns that signal cinematic success.
 
-We could perform a t-test to verify the observations made before. By looking at the p-value we could state if there are significant differences between the two distributions across all years and for specific years. In the previous example, interesting years to look at could be year 4 (highest difference) and year 10 (smallest difference).
-
-## Further analyses
-
-###  Machine Learning approach:  prediction of viewers’ ratings 
-
-Another interesting analysis could be trying to find a machine learning algorithm to predict the viewer’s ratings of a film depending on the characteristics of the main character. To do so, we will try to perform a linear regression on our data. Next, we'll proceed to train the chosen machine learning algorithm using a predefined training set and test it with the testing dataset.
-
-###  Most profitable actor
-
-A further analysis could involve conducting a third study to determine the most profitable type of actor by examining the box office revenue. This analysis will help us understand which actor characteristics have the greatest impact on a movie’s financial success within the selected genre. The main challenge we encounter is the high number of missing values for this feature. Hence, we aim to conduct this analysis if we possess the time and means to enrich our database. 
-
-## Project overview
+## 6. Project Overview <a class="anchor" id="po"></a>
 
 <p align="center">
 <img src="images/Project_overview.png" style="width: 80%;">
@@ -147,22 +204,7 @@ A further analysis could involve conducting a third study to determine the most 
 <br />
 <br />
 
-## Proposed timeline
-<div align="center">
-
-| Part   | Task                            | Deadline     |
-|--------|---------------------------------|--------------|
-| P2     | Data Preparation - Feasibility Analysis | done         |
-| P3.1   | Feature Extraction              | 24/11        |
-| P3.2   | Exploratory Analysis            | 01/12        |
-| P3.3   | Cross-Analysis                  | 08/12        |
-| P3.4   | Machine Learning                | 15/12        |
-| P3.5   | Data Story                      | 20/12        |
-| P3.6   | Most Profitable Actor           | if enough time |
-
-</div>
-
-## Organization within the team
+## 7. Team Orgnization <a class="anchor" id="to"></a>
 
 - **Armance Novel**: Feature extraction, Data Visualisation, Feasibility analysis, README
 

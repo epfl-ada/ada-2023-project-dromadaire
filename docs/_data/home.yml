@@ -1,0 +1,19 @@
+navbar_entries:
+  - title: home
+    url: /
+
+  - title: about
+    url: about
+
+  - title: GitHub
+    url: https://github.com/epfl-ada/ada-2023-project-dromadaire
+
+project_entries:
+
+old_project_entries:
+
+footer_entries:
+
+misc_entries:
+
+
