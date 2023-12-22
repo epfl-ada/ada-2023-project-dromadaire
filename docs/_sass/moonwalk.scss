@@ -38,7 +38,9 @@ li { margin: 0.4em 0; }
   background-color: var(--bg);
   border-radius: 20px;
   
-  opacity: 1;
+  :not(.theme-toggle){
+    opacity: 1;
+  }
 }
 
 table, th, td {
@@ -124,7 +126,7 @@ img {
 @mixin dark-appearance {
   html, body  {
       --headings: #ffffff;
-      --links: #91A7FF;
+      --links: #3056ee;
       --highlight: #41C7C7;
       --bg: #1f242A;
       --bg-secondary: #323945;
