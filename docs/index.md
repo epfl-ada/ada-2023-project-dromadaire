@@ -38,7 +38,6 @@ After looking at the completeness of our data, the rows with critical missing va
 
 In our feature engineering phase, we focused on enhancing our dataset with actor-centric attributes based on the 3 main actors to deepen our analysis:
 
-**TODO: table**
 
 - Counting the number of awards and nominations each actor had accumulated up until the year of the movie’s release.
 - Calculating the total number of movies each actor had appeared in up until the movie in question.
