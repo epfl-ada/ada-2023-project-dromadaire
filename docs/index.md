@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: home
 title: ADAnalysis
 ---
 
@@ -9,7 +9,6 @@ title: ADAnalysis
 # Introduction
 
 
-{% include age_at_release.html %}
 
 The main character has a key role in the realm of cinema because he drives the action. Indeed, he is the narrative focal point that holds the entire story together and serves as the audience’s guide. Main characters often become the emblem of a movie, such as Jack Sparrow for "Pirates of the Caribbean" or Harry Potter for the "Harry Potter" series. This is the reason why we hold our interest on the main character in this study. 
 
