@@ -1,4 +1,4 @@
-title: Adanalysis
+title: "Exploring the World of Cinema through Data: An ADAnalysis"
 author: DromADAire
 url: https://github.com/epfl-ada/ada-2023-project-dromadaire
 permalink: /:slug
@@ -10,7 +10,7 @@ favicon: "assets/images/popcorn.svg" # relative path to site's favicon
 remote_theme: abhinavs/moonwalk
 
 theme_config:
-  appearance: "dark" # can be "light", "dark" or "auto"
+  appearance: "light" # can be "light", "dark" or "auto"
   appearance_toggle: true # if appearance can be switched by user
   back_home_text: "home.." # customize text for homepage link in post layout
   date_format: "%Y-%m-%d" # customize how date is formatted
