@@ -32,8 +32,29 @@ p { margin: 1em 0; }
 li { margin: 0.4em 0; }
 
 .plotly-graph-div {
-  margin: 0 auto;
+  width: 100%;
   max-width: 100%;
+  display: flex;
+  overflow-x: auto;
+}
+
+.plot-container {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  overflow-x: auto;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), 
+     only screen and (min--moz-device-pixel-ratio: 2), 
+     only screen and (-o-min-device-pixel-ratio: 2/1), 
+     only screen and (min-device-pixel-ratio: 2), 
+     only screen and (min-resolution: 192dpi), 
+     only screen and (min-resolution: 2dppx) {
+  .plotly-graph-div {
+      max-width: 100%;
+  }
 }
 
 .w:not(.parent) {

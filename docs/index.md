@@ -1,6 +1,5 @@
 ---
 layout: home
-title: ADAnalysis
 ---
 
 - Toc
@@ -30,7 +29,10 @@ We used the Movie Summaries dataset provided by the course alongside the extensi
 
 In our data preparation process, we streamlined the dataset for optimal analysis. The first step involved standardizing date formats to years only, fitting our analytical requirements. We then proceeded to remove unused features and titles from the IMDb database that were not classified as movies. Duplication was another area we addressed, ensuring the uniqueness of our dataset.
 
-{% include plots/plot_missing_values.html %}
+<div class="plot-container">
+    {% include plots/plot_missing_values.html %}
+</div>
+
 
 After looking at the completeness of our data, the rows with critical missing values to our analysis were removed. Filters based on movie runtime were also applied, restricting our focus to films with durations between 20 and 200 minutes, and release dates from 1930 to 2012. These steps collectively sharpened our dataset, making it well-suited for the analysis ahead.
 
@@ -48,11 +50,15 @@ In our feature engineering phase, we focused on enhancing our dataset with actor
 
 We had a look at the connections between actors by constructing a network graph. To do this we created a bipartite graph between actors and movies and then projected it onto the actors. We then could calculate the eigenvector centrality to measure the influence of an actor in the network. The following graph displays this centrality after filtering out the “non-influential” actors for readability reasons.
 
-{% include plots/network_graph.html %}
+<div class="plot-container">
+    {% include plots/network_graph.html %}
+</div>
 
 These enhancements were crucial in providing a more nuanced understanding of an actor's experience, versatility, and recognition in the industry, contributing to a more comprehensive analysis of their impact on the movies they were part of. After the filtering of our data, we can observe that we have significantly reduced the number of films in our dataset. However, the distribution of the movies filtered is similar to the all movies with IMDb scores.
 
-{% include plots/graph_filtering_vs_all.html %}
+<div class="plot-container">
+    {% include plots/graph_filtering_vs_all.html %}
+</div>
 
 # Exploratory Data Analysis
 
@@ -79,7 +85,9 @@ This dataset provides a comprehensive foundation for our analysis, offering valu
 
 Let's first have a look at the mean of our features over time, to get a general grasp of their trends.
 
-{% include plots/graph_features_over_time_average.html %}
+<div class="plot-container">
+    {% include plots/graph_features_over_time_average.html %}
+</div>
 
 - **Awards**: We can observe a maximum average number of awards per actor in the 1950’s, followed by a long-term decrease over the decades. This observation could be due to an increased number of actors over time, which makes it more difficult to obtain an award. Note that the average awards are so low (between 0.02 and 0.07) as very few actors have awards
 - **Nominations**: The same observation can be made about the average number of nominations as this plot follows the same trend as the awards.
@@ -93,7 +101,9 @@ Let's first have a look at the mean of our features over time, to get a general 
 
 We saw previously that some of our features seem to follow similar trends throughout time. Let’s have a look to see if there are any significant correlations.
 
-{% include plots/correlation_matrix_btw_features_plot.html %}
+<div class="plot-container">
+    {% include plots/correlation_matrix_btw_features_plot.html %}
+</div>
 
 First, this matrix indicates that movie count and genre diversity exhibit a very high positive correlation (0.87), suggesting that prolific actors have a significant presence in a wide range of genres. Another high correlation can be observed between awards and nominations (0.71). 
 
@@ -109,13 +119,17 @@ To eliminate the influence of “medium” films,  we have chosen to take the 30
 
 Firstly, we should confirm whether or not the actor features we've identified do indeed correlate with the IMDb film rating.
 
-{% include plots/graph_correlation_with_average_rating.html %}
+<div class="plot-container">
+    {% include plots/graph_correlation_with_average_rating.html %}
+</div>
 
 The feature with the highest correlation is actor connections, followed by nominations and genre diversity. It is however important to note that the correlations are not very large, topping out at 0.15.
 
 ## Well-rated and poorly-rated movies over time by feature
 
-{% include plots/graph_features_over_time_is_good.html %}
+<div class="plot-container">
+    {% include plots/graph_features_over_time_is_good.html %}
+</div>
 
 These plots suggest there are observable differences in the features of actors between high and low-rated movies. Specifically, actors in higher-rated movies have a history of more awards and nominations, have appeared in more movies, and have had experience across a wider range of genres before the current movie. These findings indicate that actors' experience and recognition (in terms of awards and variety of roles) may correlate with the ratings of the movies they are in. Let’s investigate the features' evolutions in more detail.
 
@@ -135,7 +149,10 @@ The first thing that stands out from this graph is the extremely low confidence 
 
 Now that we have had a look at the temporal graphs, we know that the correlations between actor features and average ratings shown previously are probably not accurate over all years. Let’s have a look at the correlations throughout the decades.
 
-{% include plots/graph_correlation_with_rating_by_years.html %}
+<div class="plot-container">
+    {% include plots/graph_correlation_with_rating_by_years.html %}
+</div>
+
 
 The same features stand out, actor connections has a high correlation, especially at the start of the 20th century. Nominations also has a high correlation over the years and so does genre diversity. Now that we have found the influential features, we will continue this analysis by looking at each feature individually. One important thing to take from this graph is the reduction in general correlation over the years, this means that the features that we have collected have a smaller influence today than they did 8 decades ago. 
 
@@ -147,15 +164,19 @@ We will now analyse more specifically the most influential actor’s features im
 
 In the following word clouds, we can observe the top 15 actors for the three features mentioned above. This can be considered a sanity check to be sure that our 3 most influential features are not tied to the same actors which would influence our analyses.
 
-<img src="assets/images/wc.jpeg" width="500">
+<img src="assets/images/wc.jpeg" width="800">
 
 ### Nominations
 
-{% include plots/graph_awards_vs_ratings.html %}
+<div class="plot-container">
+    {% include plots/graph_awards_vs_ratings.html %}
+</div>
 
 Here we are plotting the average nominations/awards won per rating. We can observe a very slight increase in nominations and awards won as the rating increases meaning that films with high ratings generally have more awards and nominations. Unfortunately, these features are too sparse in the higher film ratings, hence the high confidence interval.
 
-{% include plots/graph_ratings_vs_awards.html %}
+<div class="plot-container">
+    {% include plots/graph_ratings_vs_awards.html %}
+</div>
 
 These two plots show that there is indeed a difference in movie ratings in terms of awards and nominations received. In other words, actors with awards and nominations generally play in better-rated movies. 
  
@@ -180,6 +201,7 @@ Null hypothesis (H0):
 Alternative hypothesis(Ha):
 - The proportion of nominations won between high-rated and low-rated movies is not equal. There is a significant association between the ratings and the number of nominations received by the actors who play in it.
 
+Results: χ² = 988, p-value = 5.4e-217
 
 We can observe an extremely low p-value, much smaller than 0.05. It leads us to the rejection of the null hypothesis and suggests that there is a significant association between the nominations and the ratings of a movie. This extremely low value could be explained by the very large sample size that we have. Even small deviations from the null hypothesis may result in extremely low p-values and the p-value might be statistically significant but not practically significant. 
 
@@ -205,7 +227,9 @@ In summary, after matching, the model indicates that having a nomination still s
 
 Now let's continue looking at our features by analyzing the actor connections. 
 
-{% include plots/histogram_actor_connections.html %}
+<div class="plot-container">
+    {% include plots/histogram_actor_connections.html %}
+</div>
 
 As we can see, our distributions are not normal and we can therefore not apply a t-test. We can however use a [Mann–Whitney U](https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test)  test as we can assume that
 - All the observations from both groups are independent of each other
@@ -217,7 +241,9 @@ With a Mann Whitney u p-value of 1.18e-86, we can see from this test that the ac
 
 ### Genre diversity
 
-{% include plots/histogram_genre_diversity.html %}
+<div class="plot-container">
+    {% include plots/histogram_genre_diversity.html %}
+</div>
 
 We can see that there is a slight difference in these two distributions, but are they significant? We can apply an identical reasoning to genre diversity. The Mann-Witney test also gives a low p-value (3.84e-160), implying its statistical significance.
 
@@ -225,12 +251,19 @@ We can see that there is a slight difference in these two distributions, but are
 
 Now that we have had a look at the important actor features, let's see if we can visualise a difference between actors who play in highly rated movies and ones who play in poorly rated movies. To do this we first must do a PCA on our data, this allows us to plot multiple features on a 2D plot. 
 
-{% include plots/graph_PCA_actors_movies.html %}
+<div class="plot-container">
+    {% include plots/graph_PCA_actors_movies.html %}
+</div>
 
 Unfortunately, we can’t see any evident clusters in this graph. But this was expected as we saw that the period of the film plays a large role. Let's have a look at the different decades!
 
-{% include plots/graph_PCA_over_years.html %}
+<div class="plot-container">
+    {% include plots/graph_PCA_over_years.html %}
+</div>
 
+The first thing that stands out is the difference in the shape of these plots. In earlier years, the points are more scattered and become grouped as the years go on. This may be due to the reduction of correlation in more recent years as seen before:  as our features have less and less influence, the more grouped the points become.
+
+Having a closer look, we can see that in the first 3 decades, the actors who played in lower-rated movies are more concentrated around the main cluster. As the years go on, the distribution of poorly rated movies is becoming similar to the distribution of actors in well-rated movies, so much so that in 2000 -2010  it’s hard to see any difference in these distributions. This reflects what was stated previously in this analysis: our features have a higher importance in earlier years.
 
 # Machine Learning
 
@@ -240,7 +273,9 @@ Our model was trained on the most influential features to distinguish well-rated
 
 Interestingly, the model's effectiveness seems to significantly rely on the actors' connections, which held a pronounced impact on the predictions. However, our evaluation metrics indicate that while the model fits the training data to some extent, it has a hard time predicting a movie's success based solely on its cast.
 
-{% include plots/graph_features_importance_forest_model.html %}
+<div class="plot-container">
+    {% include plots/graph_features_importance_forest_model.html %}
+</div>
 
 The following results indicate that the random forest classifier is somewhat better at identifying actors playing in poorly rated movies (instance of class 0) than actors playing in well rated movies (instance of class 1). The overall accuracy is moderate (0.59), and there's a significant difference in recall between the two classes, which could indicate a potential area for model improvement, especially in correctly identifying more instances of highly rated movies.
 
